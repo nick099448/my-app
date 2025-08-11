@@ -1,9 +1,10 @@
 import { Link, router } from "expo-router";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
   return (
     <>
+     <ScrollView>
       <View
         style={{
           // flexDirection: "row",
@@ -174,7 +175,6 @@ export default function Index() {
         </Link>
       </View>
       <View style={styles.container}>
-        ...
         <Link href="/travel" style={styles.link}>
           <Text style={styles.linkText}>Travel</Text>
         </Link>
@@ -184,7 +184,20 @@ export default function Index() {
         <Link href="/health" style={styles.link}>
           <Text style={styles.linkText}>health</Text>
         </Link>
+        <Link href="/home" style={styles.link}>
+          <Text style={styles.linkText}>Home</Text>
+        </Link>
+        <Link href="/chart" style={styles.link}>
+          <Text style={styles.linkText}>Chart</Text>
+        </Link>
+        <Link href="/your-health" style={styles.link}>
+          <Text style={styles.linkText}>Your Health</Text>
+        </Link>
+        <Link  href="/Quiz/todolist" style={styles.link}>
+          <Text style={styles.linkText}>Todolist</Text>
+        </Link>
       </View>
+      </ScrollView>
     </>
   );
 }
@@ -196,5 +209,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#2196F3",
     borderRadius: 5,
   },
-  linkText: { color: "#fff", fontSize: 16, textAlign: "center" },
+  linkText: { color: "#fff", fontSize: 25, textAlign: "center" },
 });
