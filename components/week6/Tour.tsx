@@ -1,9 +1,9 @@
 import React from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 
-export default function Tour() {
+export default function Tour(props: any) {
   return (
-    <View>
+    <View style={props.style}>
       <Text style={{ fontSize: 20 }}>Tour</Text>
       <Text style={{ color: "grey" }}>
         Let find out what most interesting things

@@ -13,7 +13,7 @@ export default function Home() {
       <View style={{ flex: 1, backgroundColor: "lightyellow", marginTop: 20 }}>
         <Cover />
         <HomeIconMenu />
-        <Tour  />
+        <Tour style={{ margin: 20 }}  />
         <TourFlatList style={{ margin: 20 }} />
         <Event style={{ margin: 20 }} />
       </View>
