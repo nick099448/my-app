@@ -61,7 +61,7 @@ export default function Location() {
         </View>
       </View>
       <View style={{ flex: 1 }}>
-        <MyMapView location={location} setLocation={setLocation} />
+        <MyMapView location={location} setLocation={setLocation}  mode="university"  />
       </View> 
     </View>
   );

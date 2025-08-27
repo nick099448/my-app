@@ -48,7 +48,7 @@ export default function location_quiz() {
         </View>
       </View>
       <View style={{ flex: 1 }}>
-        <MyMapView location={location} setLocation={setLocation} />
+        <MyMapView location={location} setLocation={setLocation} mode="quiz" />
       </View>
     </View>
   );

@@ -10,7 +10,7 @@ export default function MyMapView(props: any) {
   const width = Dimensions.get("screen").width;
   const height = Dimensions.get("screen").height;
   const [universities, setUniversities] = useState([]);
-    const [peoples, setPeoples] = useState([]);
+  const [peoples, setPeoples] = useState([]);
   const loadUniversities = async () => {
     let url_endpoint =
       "https://raw.githubusercontent.com/arc6828/myreactnative/master/assets/week10/universities.json";
@@ -23,7 +23,7 @@ export default function MyMapView(props: any) {
       console.log(error);
     }
   };
-   const loadPeple = async () => {
+  const loadPeple = async () => {
     try {
       setPeoples(items); // <-- เก็บใน state แยก ไม่ทับ universities
     } catch (error) {
@@ -47,31 +47,30 @@ export default function MyMapView(props: any) {
         }}
         showsUserLocation={true}
         onUserLocationChange={(event) => {
-          // console.log("LOCATION CHANGED : " , event);
           if (event.nativeEvent.coordinate) {
             let new_location = {
               coords: event.nativeEvent.coordinate,
               mocked: false,
               timestamp: event.nativeEvent.coordinate.timestamp,
             };
-            //SET LOCATION
             props.setLocation(new_location);
-            //SEND TO SERVER
-            //if (props.recordLocation) {
-              console.log("SEND TO SERVER");
-              postData("/location" , {
-                user_id: "Worapot taveesin",
-                latitude: event.nativeEvent.coordinate.latitude,
-                longitude: event.nativeEvent.coordinate.longitude,
-              });
-            //}
-
+            postData("/location", {
+              user_id: "Worapot taveesin",
+              latitude: event.nativeEvent.coordinate.latitude,
+              longitude: event.nativeEvent.coordinate.longitude,
+            });
           }
         }}
       >
-        <UniversityMarkers items={universities} />
-        <PepleMarkers items={peoples}/>
+         {props.mode === "university" && (
+          <UniversityMarkers items={universities} type="location" />
+        )}
+
+        {props.mode === "quiz" && (
+          <PepleMarkers items={peoples} type="location-quiz" />
+        )}
       </MapView>
+      
     );
   } else {
     //DISPLAY DEFAULT MAP on 0,0
