@@ -205,6 +205,10 @@ export default function Index() {
           <Link href="/location" style={styles.link}>
             <Text style={styles.linkText}>Location</Text>
           </Link>
+          <Link href="/book" style={styles.link}>
+  <Text style={styles.linkText}>Book</Text>
+</Link>
+
         </View>
       </ScrollView>
     </>
